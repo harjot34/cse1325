@@ -21,6 +21,7 @@ public abstract class Vehicle {
     public abstract double dollarsToTravel(double miles);
 
     public String ToString() {
-        return this.year + this.make + this.model + this.bodystyle;
+        return "Year:" + this.year + " Make:" + this.make + " Model:" + this.model + " BodyStyle:"
+                + this.bodystyle.name();
     }
 }
