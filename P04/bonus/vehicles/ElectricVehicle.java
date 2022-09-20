@@ -1,4 +1,4 @@
-// import java.util.Scanner;
+package vehicles;
 
 public class ElectricVehicle extends Vehicle {
 

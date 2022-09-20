@@ -1,3 +1,5 @@
+package vehicles;
+
 public class GasVehicle extends Vehicle {
     public static double dollarsPerGallonOfGas = Double.NaN;
     private double milesPerGallon;
