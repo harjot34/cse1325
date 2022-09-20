@@ -11,7 +11,7 @@ public class TravelCost {
     String centsPerKwhOfElectricity = in.nextLine();
     System.out.println("How many miles is your trip?");
     String mileslongTrip = in.nextLine();
-
+    in.close();
     ArrayList<Vehicle> vehicleList = new ArrayList<>();
     vehicleList.add(new ElectricVehicle(2022, "Telsa", "Model S Plaid", BodyStyle.Sedan, 297, 100));
     vehicleList.add(new ElectricVehicle(2022, "Telsa", "Model 3 LR", BodyStyle.Sedan, 242, 82));

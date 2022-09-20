@@ -26,12 +26,11 @@ public class ElectricVehicle extends Vehicle {
     @Override
     public double fuelConsumed(double miles) {
         double fuelConsumed = miles * (whPerMile / 1000);
+        if (Double.compare(fuelConsumed, kwhInBattery) > 0) {
+            throw new ArithmeticException(
+                    "FuelConsumed:" + fuelConsumed + " is greater than fuel in tank:" + kwhInBattery);
+        }
         return fuelConsumed;
-        // try {
-        // Double.compare(result2, kwInBattery);
-        // } catch (ArithmeticException obj) {
-        // System.out.println("There is more energy than available");
-        // }
     }
 
     @Override
