@@ -34,6 +34,7 @@ public class ElectricVehicle extends Vehicle {
         // }
     }
 
+    @Override
     public double dollarsToTravel(double miles) {
         double dollarsToTravel = fuelConsumed(miles) * (centsPerKwhOfElectricity / 100);
         return dollarsToTravel;
