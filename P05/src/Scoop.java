@@ -16,9 +16,11 @@ public class Scoop {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(flavor + " with ");
+        sb.append("List of Ice Cream Scoops:\n");
+        sb.append(flavor.name() + " with ");
         for (MixIn mx : mixinsls) {
             sb.append(mx);
+            // sb.append(",");
         }
         return sb.toString();
     }

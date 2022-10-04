@@ -9,7 +9,7 @@ public class MixIn {
     }
 
     public String toString() {
-        return " " + flavor + " " + amount;
+        return " " + flavor.name() + " (" + amount.name() + ") ,";
     }
 
 }
