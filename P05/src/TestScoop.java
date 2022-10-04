@@ -51,6 +51,7 @@ public class TestScoop {
             } else if (selection.equals("s")) {
                 System.out.println("Creating a scoop of icecream!\n\n");
                 obj.testScoops();
+                obj.testScoops2();
             } else if (selection.equals("q")) {
                 System.exit(0);
             }
@@ -74,6 +75,26 @@ public class TestScoop {
             this.scoops.add(sc); // add scoop to scoop list
 
             System.out.println(sc.toString());
+        }
+    }
+
+    public void testScoops2() {
+        for (IceCreamFlavor icFlv : flavors) {
+
+            Scoop sc = new Scoop(icFlv);
+
+            for (MixInFlavor mx : mixins) {
+                MixInAmount mxamt = MixInAmount.Light;
+                MixIn mixIn = new MixIn(mx, mxamt);
+                sc.addMixIn(mixIn);
+            }
+            this.scoops.add(sc); // add scoop to scoop list
+
+            // StringBuffer sb = new StringBuffer();
+            // sb.append("0) " + icFlv.name() + "\n");
+            // sb.append("Flavor?");
+
+            // System.out.println(sb.toString());
         }
     }
 }
