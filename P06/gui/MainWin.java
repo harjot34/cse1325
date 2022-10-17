@@ -1,5 +1,5 @@
 import java.awt.*;
-import java.awt.event.*;
+//import java.awt.event.*;
 import java.awt.image.*;
 import java.io.File;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import javax.swing.*;
 import javax.imageio.ImageIO;
 
 //credit given to Professor Rice - https://github.com/prof-rice/cse1325-prof/blob/main/12/code_from_slides/nim/MainWin.java
-public class MainWin extends JFrame implements ActionListener {
+public class MainWin extends JFrame {
 
     // private Emporium emporium;
     private JLabel display;
