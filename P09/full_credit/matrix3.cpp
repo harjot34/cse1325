@@ -15,14 +15,14 @@ using namespace std;
 			   }
 			}
 			 data[0][0] = m00; 
-			 data[0][0] = m10; 
-			 data[0][0] = m20; 
-			 data[0][0] = m01; 
-			 data[0][0] = m11; 
-			 data[0][0] = m21; 
-			 data[0][0] = m02; 
-			 data[0][0] = m12; 
-			 data[0][0] = m22;
+			 data[1][0] = m10; 
+			 data[2][0] = m20; 
+			 data[0][1] = m01; 
+			 data[1][1] = m11; 
+			 data[2][1] = m21; 
+			 data[0][2] = m02; 
+			 data[1][2] = m12; 
+			 data[2][2] = m22;
 		}
  	       
 			
@@ -51,12 +51,12 @@ using namespace std;
 		std::istream& operator>>(std::istream &in, Matrix3 &m){
 			for (int r = 0; r < 3; r++) 
 				{ 
-					//in >> m.get(r, 0); 
+					in >> m.get(r, 0); 
 					for (int c = 0; c < 3; c++) 
 					{ 
-					//	in >> " " >> m.get(r,c); 
+						in >> " " >> m.get(r,c); 
 					} 
-					//in >> endl; 
+					in >> endl; 
 				} 
 		   return in;
 		}

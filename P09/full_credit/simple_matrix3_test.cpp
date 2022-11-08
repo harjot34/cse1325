@@ -3,9 +3,9 @@
 // To avoid using the overloaded << operator, we use a function to print instead
 void print_matrix(Matrix3 m) {
     std::cout << '\n';
-    //std::cout << m.get(0,0) << " " << m.get(1,0) << " " << m.get(2,0) << "\n";
-    //std::cout << m.get(0,1) << " " << m.get(1,1) << " " << m.get(2,1) << "\n";
-    //std::cout << m.get(0,2) << " " << m.get(1,2) << " " << m.get(2,2) << "\n";
+    std::cout << m.get(0,0) << " " << m.get(1,0) << " " << m.get(2,0) << "\n";
+    std::cout << m.get(0,1) << " " << m.get(1,1) << " " << m.get(2,1) << "\n";
+    std::cout << m.get(0,2) << " " << m.get(1,2) << " " << m.get(2,2) << "\n";
     std::cout << '\n';
 }
 
