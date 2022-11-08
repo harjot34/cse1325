@@ -30,34 +30,44 @@ using namespace std;
 			return data[x][y];
 		}
 		
-		Matrix3 operator+(Matrix3& rhs){
-			Matrix3 matrix3;
-			return matrix3;
+		Matrix3 operator+(Matrix3 rhs){
+            int addData[3][3];
+ 
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+				    addData[i][j] = data[i][j] + rhs.data[i][j];
+				}
+			}
+
+			for (int i = 0; i < 3; i++) { 
+				for (int j = 0; j < 3; j++) {
+				    rhs.data[i][j] = addData[i][j];
+				}
+			}
+            return rhs;
 		}
 		
-		std::ostream& operator<<(std::ostream &out, Matrix3 &m){
-	        for (int r = 0; r < 3; r++) 
-			{ 
-				out << m.get(r, 0); 
-				for (int c = 0; c < 3; c++) 
-				{ 
-				    out << " " << m.get(r,c); 
-				} 
-				out << endl; 
-			} 
-			return out; 
+		std::ostream& operator<<(std::ostream &out, Matrix3 m){
+	        //for (int r = 0; r < 3; r++) 
+			//{ 
+			//	out << m.get(r, 0); 
+			//	for (int c = 0; c < 3; c++) 
+			//	{ 
+			//	    out << " " << m.get(r,c); 
+			//	} 
+			//} 
+			return out;
 		}
 	
-		std::istream& operator>>(std::istream &in, Matrix3 &m){
-			for (int r = 0; r < 3; r++) 
-				{ 
-					in >> m.get(r, 0); 
-					for (int c = 0; c < 3; c++) 
-					{ 
-						in >> " " >> m.get(r,c); 
-					} 
-					in >> endl; 
-				} 
+		std::istream& operator>>(std::istream &in, Matrix3 m){
+			//for (int r = 0; r < 3; r++) 
+			//	{ 
+			//		in >> m.get(r, 0); 
+			//		for (int c = 0; c < 3; c++) 
+			//		{ 
+			//			in >> " " >> m.get(r,c); 
+			//		}  
+			//	} 
 		   return in;
 		}
 
