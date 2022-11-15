@@ -43,8 +43,12 @@ public class Serving {
         StringBuilder result = new StringBuilder();
         String separator = " with ";
         result.append(container.name() + " " + separator + " a scoop of ");
+        int len = scoop.size();
         for (Scoop sc : scoop) {
             result.append(sc.toString());
+            if ((len - 1) != 0)
+                result.append(",");
+            len--;
         }
         return result.toString();
     }
