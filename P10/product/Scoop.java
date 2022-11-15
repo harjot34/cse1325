@@ -39,10 +39,9 @@ public class Scoop {
     public String toString() {
         StringBuilder result = new StringBuilder(flavor.toString());
         if (mixins.size() > 0) {
-            String separator = " with ";
+            String separator = " and topped with ";
             for (MixIn m : mixins) {
                 result.append(separator + m.toString());
-                separator = ", ";
             }
         }
         return result.toString();

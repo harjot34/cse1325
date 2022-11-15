@@ -7,7 +7,10 @@ import java.io.IOException;
 
 public class Order {
 
-    private ArrayList<Serving> servings;
+    private ArrayList<Serving> servings = new ArrayList<>();
+
+    public Order() {
+    }
 
     public Order(BufferedReader in) throws IOException {
         this.servings = new ArrayList<>();
@@ -30,10 +33,8 @@ public class Order {
     public String toString() {
         StringBuilder result = new StringBuilder();
         if (servings.size() > 0) {
-            String separator = " with ";
             for (Serving m : servings) {
-                result.append(separator + m.toString());
-                separator = ", ";
+                result.append(m.toString());
             }
         }
         return result.toString();

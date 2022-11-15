@@ -55,7 +55,7 @@ public class MainWin extends JFrame {
     private final String EXTENSION = "mice";
     private final String VERSION = "0.3";
     private final String FILE_VERSION = "1.0";
-    private final String MAGIC_COOKIE = "Mïċẹ🍦🍨";
+    private final String MAGIC_COOKIE = "Mice";
 
     public MainWin() {
         super("Mavs Ice Cream Emporium");
@@ -102,7 +102,7 @@ public class MainWin extends JFrame {
         createICF.addActionListener(event -> onCreateIceCreamFlavorClick());
         createMIF.addActionListener(event -> onCreateMixInFlavorClick());
         createCon.addActionListener(event -> onCreateContainerClick());
-        createOrder.addActionListener(event -> onCreateScoop());
+        createOrder.addActionListener(event -> onCreateOrderClick());
 
         about.addActionListener(event -> onAboutClick());
 
@@ -181,7 +181,7 @@ public class MainWin extends JFrame {
         createOrderButton.setActionCommand("Create New Order");
         createOrderButton.setToolTipText("Create New Order");
         toolbar.add(createOrderButton);
-        createOrderButton.addActionListener(event -> onCreateScoop());
+        createOrderButton.addActionListener(event -> onCreateOrderClick());
 
         toolbar.add(Box.createHorizontalStrut(25));
 
@@ -231,7 +231,7 @@ public class MainWin extends JFrame {
         emporium = new Emporium();
         filename = new File("untitled." + EXTENSION);
         setDirty(false); // disables Save when no new data exists
-        setScoopAvailable(); // disables new Scoop when no ice cream flavors exist
+        // setScoopAvailable(); // disables new Scoop when no ice cream flavors exist
         view(Screen.ICE_CREAM_FLAVORS);
     }
 
@@ -254,7 +254,6 @@ public class MainWin extends JFrame {
         } catch (Exception e) {
         }
         try {
-            // setScoopAvailable();
             setDirty(true);
             view(Screen.ICE_CREAM_FLAVORS);
         } catch (Exception e) {
@@ -282,62 +281,36 @@ public class MainWin extends JFrame {
 
     protected void onCreateOrderClick() {
         try {
-            Order ord = (Order) JOptionPane.showInputDialog(this, "Orders?", "New Order",
-                    JOptionPane.QUESTION_MESSAGE, null, emporium.orders(), null);
-            // if (ord != null) {
-            // // Order order = new Order(ord);
-            // if (emporium.mixInFlavors().length > 0) {
-            // String prompt = "<html>" + order + "<br/>Add a order?</html>";
-            // while (true) {
-            // MixInFlavor mif = (MixInFlavor) JOptionPane.showInputDialog(this, prompt,
-            // "Add Mix In",
-            // JOptionPane.QUESTION_MESSAGE, null, emporium.mixInFlavors(), null);
-            // if (mif == null)
-            // break;
-            // MixInAmount mia = (MixInAmount) JOptionPane.showInputDialog(this, prompt,
-            // "Add Mix In",
-            // JOptionPane.QUESTION_MESSAGE, null, MixInAmount.values(),
-            // MixInAmount.Normal);
-            // ord.addOrder(order);
-            // prompt = "<html>" + order + "<br/>Add another mix in?</html>";
-            // }
-            // }
-            emporium.addOrder(ord);
+            Order order = new Order();
+            Serving serving = onCreateServingClick();
+            order.addServing(serving);
+            emporium.addOrder(order);
             setDirty(true);
             view(Screen.ORDERS);
         } catch (Exception e) {
-            System.err.println(
-                    "onCreateOr                                                                                                                                                                                                              der exception: "
-                            + e);
+            System.err.println("onCreateOrder()" + e);
         }
     }
 
-    protected void onCreateServingClick() {
+    protected Serving onCreateServingClick() {
+        Serving serving = null;
         try {
-            Container container = (Container) JOptionPane.showInputDialog(this, "Container?", "New Container",
+            Container container = (Container) JOptionPane.showInputDialog(this, "Container?", "New Order",
                     JOptionPane.QUESTION_MESSAGE, null, emporium.containers(), null);
             if (container != null) {
-                Serving serving = new Serving(container);
-                if (emporium.containers().length > 0) {
-                    String prompt = "<html>" + serving + "<br/>Add another serving</html>";
-                    while (true) {
-                        MixInFlavor mif = (MixInFlavor) JOptionPane.showInputDialog(this, prompt,
-                                "Add Mix In",
-                                JOptionPane.QUESTION_MESSAGE, null, emporium.mixInFlavors(), null);
-                        if (mif == null)
-                            break;
-                        MixInAmount mia = (MixInAmount) JOptionPane.showInputDialog(this, prompt,
-                                "Add Mix In",
-                                JOptionPane.QUESTION_MESSAGE, null, MixInAmount.values(),
-                                MixInAmount.Normal);
-                        serving.addTopping(new MixIn(mif, mia));
-                        prompt = "<html>" + serving + "<br/>Add another serving</html>";
+                serving = new Serving(container);
+                if (container != null) {
+                    int maxScoop = container.maxScoops();
+                    while (maxScoop-- > 0) {
+                        Scoop scoop = onCreateScoop();
+                        serving.addScoop(scoop);
                     }
                 }
             }
         } catch (Exception e) {
             System.err.println("onCreateScoop exception: " + e);
         }
+        return serving;
     }
 
     protected void onCreateContainerClick() {
@@ -356,35 +329,30 @@ public class MainWin extends JFrame {
         }
     }
 
-    protected void onCreateScoop() {
+    protected Scoop onCreateScoop() {
+        Scoop scoop = null;
         try {
             IceCreamFlavor icf = (IceCreamFlavor) JOptionPane.showInputDialog(this, "Ice Cream Flavor?", "New Scoop",
                     JOptionPane.QUESTION_MESSAGE, null, emporium.iceCreamFlavors(), null);
             if (icf != null) {
-                Scoop scoop = new Scoop(icf);
+                scoop = new Scoop(icf);
                 if (emporium.mixInFlavors().length > 0) {
-                    String prompt = "<html>" + scoop + "<br/>Add a mix in?</html>";
-                    while (true) {
-                        MixInFlavor mif = (MixInFlavor) JOptionPane.showInputDialog(this, prompt,
-                                "Add Mix In",
-                                JOptionPane.QUESTION_MESSAGE, null, emporium.mixInFlavors(), null);
-                        if (mif == null)
-                            break;
-                        MixInAmount mia = (MixInAmount) JOptionPane.showInputDialog(this, prompt,
-                                "Add Mix In",
-                                JOptionPane.QUESTION_MESSAGE, null, MixInAmount.values(),
-                                MixInAmount.Normal);
-                        scoop.addMixIn(new MixIn(mif, mia));
-                        prompt = "<html>" + scoop + "<br/>Add another mix in?</html>";
-                    }
+                    String prompt = "<html>Add a mix in?</html>";
+                    MixInFlavor mif = (MixInFlavor) JOptionPane.showInputDialog(this, prompt,
+                            "Add Mix In",
+                            JOptionPane.QUESTION_MESSAGE, null, emporium.mixInFlavors(), null);
+                    MixInAmount mia = (MixInAmount) JOptionPane.showInputDialog(this, prompt,
+                            "Add Mix In Amount",
+                            JOptionPane.QUESTION_MESSAGE, null, MixInAmount.values(),
+                            MixInAmount.Normal);
+                    scoop.addMixIn(new MixIn(mif, mia));
                 }
-                // emporium.addScoop(scoop);
-                // setDirty(true);
-                // view(Screen.SCOOPS);
             }
         } catch (Exception e) {
             System.err.println("onCreateScoop exception: " + e);
         }
+
+        return scoop;
     }
 
     // File I/O Methods
@@ -527,7 +495,7 @@ public class MainWin extends JFrame {
                     s.append(t.toString() + "<br/>");
                 break;
             case ORDERS:
-                title = "Containers";
+                title = "Orders";
                 for (var t : emporium.orders())
                     s.append(t.toString() + "<br/>");
                 break;
@@ -546,11 +514,11 @@ public class MainWin extends JFrame {
         saveAsButton.setEnabled(isDirty);
     };
 
-    private void setScoopAvailable() {
-        boolean scoopIsAvailable = (emporium.iceCreamFlavors().length > 0);
-        createScoop.setEnabled(scoopIsAvailable); // until an ice cream flavor is
-        createScoopButton.setEnabled(scoopIsAvailable);
-    }
+    // private void setScoopAvailable() {
+    // boolean scoopIsAvailable = (emporium.iceCreamFlavors().length > 0);
+    // // createScoop.setEnabled(scoopIsAvailable); // until an ice cream flavor is
+    // // createScoopButton.setEnabled(scoopIsAvailable);
+    // }
 
     private Emporium emporium;
     private File filename;
@@ -560,9 +528,6 @@ public class MainWin extends JFrame {
     private JMenuItem saveAs;
     private JButton saveButton;
     private JButton saveAsButton;
-
-    private JMenuItem createScoop; // defined here so we can disable and enable it
-    private JButton createScoopButton;
 
     // private JLabel msg; // Status message display
 }

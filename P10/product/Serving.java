@@ -17,10 +17,10 @@ public class Serving {
     }
 
     public Serving(BufferedReader in) throws IOException {
-        // this.mixins = new ArrayList<>();
-        // int numMixIns = Integer.parseInt(in.readLine());
-        // while (numMixIns-- > 0)
-        // mixins.add(new MixIn(br));
+        this.topping = new ArrayList<>();
+        int numMixIns = Integer.parseInt(in.readLine());
+        while (numMixIns-- > 0)
+            this.topping.add(new MixIn(in));
     }
 
     public void save(BufferedWriter out) throws IOException {
@@ -36,6 +36,17 @@ public class Serving {
 
     public void addTopping(MixIn topping) {
         this.topping.add(topping);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        String separator = " with ";
+        result.append(container.name() + " " + separator + " a scoop of ");
+        for (Scoop sc : scoop) {
+            result.append(sc.toString());
+        }
+        return result.toString();
     }
 
 }

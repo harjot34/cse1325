@@ -24,8 +24,8 @@ public class MixIn {
     public String toString() {
         // return flavor.toString() + ((amount != MixInAmount.Normal)
         return flavor.toString() + (!amount.equals(MixInAmount.Normal)
-                ? " (" + amount + ")"
-                : "");
+                ? " (" + amount + ") "
+                : " ");
     }
 
     private MixInFlavor flavor;
