@@ -47,4 +47,12 @@ public class Scoop {
         return result.toString();
     }
 
+    public double getPrice() {
+        double price = 0.0;
+        for (MixIn m : mixins) {
+            price = price + m.getPrice();
+        }
+        return price;
+    }
+
 }

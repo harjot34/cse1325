@@ -28,6 +28,12 @@ public class MixIn {
                 : " ");
     }
 
+    public double getPrice() {
+        double price = 0.0;
+        price = price + 1.00;
+        return price;
+    }
+
     private MixInFlavor flavor;
     private MixInAmount amount;
 }

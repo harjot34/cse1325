@@ -6,8 +6,11 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
+import person.Customer;
+
 public class Order {
 
+    private Customer customer;
     private ArrayList<Serving> servings = new ArrayList<>();
 
     public Order() {
@@ -21,6 +24,7 @@ public class Order {
     }
 
     public void save(BufferedWriter out) throws IOException {
+        customer.save(out);
         out.write("" + servings.size() + '\n');
         for (Serving mi : servings)
             mi.save(out);
@@ -28,6 +32,10 @@ public class Order {
 
     public void addServing(Serving serving) {
         servings.add(serving);
+    }
+
+    public void addCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     @Override
@@ -39,6 +47,18 @@ public class Order {
             }
         }
         return result.toString();
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public double getPrice() {
+        double price = 0.0;
+        for (Serving m : servings) {
+            price = price + m.getPrice();
+        }
+        return price;
     }
 
 }

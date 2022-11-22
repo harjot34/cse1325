@@ -53,4 +53,12 @@ public class Serving {
         return result.toString();
     }
 
+    public double getPrice(){
+        double price = 0.0;
+        for (Scoop sc : scoop) {
+           price = price + sc.getPrice();
+        }
+        return price;
+    }
+
 }

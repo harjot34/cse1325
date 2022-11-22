@@ -261,18 +261,22 @@ public class MainWin extends JFrame {
 
     protected void onCreateCustomerClick() {
         try {
-            emporium.addCustomer(new Customer(
+            Customer customer = new Customer(
                     JOptionPane.showInputDialog(this, "Name?", "New Customer",
                             JOptionPane.QUESTION_MESSAGE),
                     JOptionPane.showInputDialog(this, "Phone?", "Add Phone",
-                            JOptionPane.QUESTION_MESSAGE)));
-        } catch (Exception e) {
-        }
-        try {
+                            JOptionPane.QUESTION_MESSAGE));
+
+            Order order = new Order();
+            Serving serving = onCreateServingClick();
+            order.addServing(serving);
+            order.addCustomer(customer);
+            emporium.addOrder(order);
             setDirty(true);
-            view(Screen.CUSTOMER);
+            view(Screen.ORDERS);
+
         } catch (Exception e) {
-            System.err.println("onCreateCustomerClick exception: " + e);
+            System.err.println("onCreateOrder()" + e);
         }
     }
 
@@ -320,6 +324,8 @@ public class MainWin extends JFrame {
             Order order = new Order();
             Serving serving = onCreateServingClick();
             order.addServing(serving);
+            // order.addCustomer(null);
+            emporium.addOrder(order);
             setDirty(true);
             view(Screen.ORDERS);
         } catch (Exception e) {
@@ -531,7 +537,17 @@ public class MainWin extends JFrame {
                 break;
             case ORDERS:
                 title = "Orders";
-                for (var t : emporium.orders())
+                int i = 1;
+                for (var t : emporium.orders()) {
+                    Order ord = (Order) t;
+                    s.append("Order " + i + " $ " + ord.getPrice() + " For " + ord.getCustomer().getName() + " <br/>");
+                    s.append(ord.toString() + "<br/>");
+                    i++;
+                }
+                break;
+            case CUSTOMER:
+                title = "Customers";
+                for (var t : emporium.customers())
                     s.append(t.toString() + "<br/>");
                 break;
             default:
@@ -549,11 +565,11 @@ public class MainWin extends JFrame {
         saveAsButton.setEnabled(isDirty);
     };
 
-    // private void setScoopAvailable() {
-    // boolean scoopIsAvailable = (emporium.iceCreamFlavors().length > 0);
-    // // createScoop.setEnabled(scoopIsAvailable); // until an ice cream flavor is
-    // // createScoopButton.setEnabled(scoopIsAvailable);
-    // }
+    private void setScoopAvailable() {
+        boolean scoopIsAvailable = (emporium.iceCreamFlavors().length > 0);
+        // createScoop.setEnabled(scoopIsAvailable); // until an ice cream flavor is
+        // createScoopButton.setEnabled(scoopIsAvailable);
+    }
 
     private Emporium emporium;
     private File filename;

@@ -79,7 +79,7 @@ public class Emporium {
         iceCreamFlavors.add(flavor);
     }
 
-    public void addOrder(Order order, Customer customer) {
+    public void addOrder(Order order) {
         orders.add(order);
     }
 
