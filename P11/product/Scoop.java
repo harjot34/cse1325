@@ -50,7 +50,7 @@ public class Scoop {
     public double getPrice() {
         double price = 0.0;
         for (MixIn m : mixins) {
-            price = price + m.getPrice();
+            price = flavor.price() + m.getPrice();
         }
         return price;
     }

@@ -29,8 +29,15 @@ public class MixIn {
     }
 
     public double getPrice() {
-        double price = 0.0;
-        price = price + 1.00;
+        double price = 1.0; // same price for all flavors
+        if (amount.equals(MixInAmount.Light))
+            price = flavor.price() + 0.50;
+        else if (amount.equals(MixInAmount.Normal))
+            price = flavor.price() + 1.00;
+        else if (amount.equals(MixInAmount.Extra))
+            price = flavor.price() + 1.50;
+        else if (amount.equals(MixInAmount.Drenched))
+            price = flavor.price() + 2.00;
         return price;
     }
 

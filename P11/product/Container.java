@@ -27,7 +27,7 @@ public class Container {
         out.write("" + maxScoops + '\n');
     }
 
-    // xtra code if not used remove it
+    // extra code if not used remove it
     public String name() {
         return name;
     }
