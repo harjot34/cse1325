@@ -43,12 +43,10 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-// import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-// import java.io.IOException;
 import java.util.Arrays;
 import java.util.ArrayList;
 
@@ -269,11 +267,22 @@ public class MainWin extends JFrame {
                     JOptionPane.showInputDialog(this, "Phone?", "Add Phone",
                             JOptionPane.QUESTION_MESSAGE));
 
+            // if (!(emporium.getFavoriteServings(customer) == null) &&
+            // if (!(emporium.getFavoriteServings(customer) == null)) {
+            // Serving servin = (Serving) JOptionPane.showInputDialog(this, "Container?",
+            // "Select favorite servings?",
+            // JOptionPane.QUESTION_MESSAGE, null, emporium.getFavoriteServings(customer),
+            // null);
+            // }
+
             Order order = new Order();
             Serving serving = onCreateServingClick();
             order.addServing(serving);
             order.addCustomer(customer);
             emporium.addOrder(order);
+            Serving servArray[] = new Serving[1];
+            servArray[0] = serving;
+            emporium.addFavoriteServings(customer, servArray);
             setDirty(true);
             view(Screen.ORDERS);
 
@@ -336,6 +345,9 @@ public class MainWin extends JFrame {
             order.addServing(serving);
             order.addCustomer(cust);
             emporium.addOrder(order);
+            Serving servArray[] = new Serving[1];
+            servArray[0] = serving;
+            emporium.addFavoriteServings(cust, servArray);
             setDirty(true);
             view(Screen.ORDERS);
         } catch (Exception e) {

@@ -83,6 +83,10 @@ public class Emporium {
         orders.add(order);
     }
 
+    public void addFavoriteServings(Customer customer, Serving serving[]) {
+        favoriteServings.put(customer, serving);
+    }
+
     public Object[] customers() {
         return this.customers.toArray();
     }
@@ -103,10 +107,14 @@ public class Emporium {
         return this.orders.toArray();
     }
 
+    public Object[] getFavoriteServings(Customer customer) {
+        return this.favoriteServings.get(customer);
+    }
+
     private ArrayList<MixInFlavor> mixInFlavors = new ArrayList<>();
     private ArrayList<IceCreamFlavor> iceCreamFlavors = new ArrayList<>();
     private ArrayList<Container> containers = new ArrayList<>();
     private ArrayList<Order> orders = new ArrayList<>();
     private ArrayList<Customer> customers = new ArrayList<>();
-    private MultiMap<Customer, Serving[]> favoriteServings = new MultiMap<>();
+    private MultiMap<Customer, Serving[]> favoriteServings = new MultiMap<Customer, Serving[]>();
 }

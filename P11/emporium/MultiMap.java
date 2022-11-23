@@ -15,7 +15,7 @@ public class MultiMap<K, V> {
     }
 
     public Object[] get(Object key) {
-        return map.get(key).toArray();
+        return map.get(key) == null ? new Object[0] : map.get(key).toArray();
     }
 
 }
