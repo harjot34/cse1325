@@ -22,7 +22,6 @@ public class MixIn {
 
     @Override
     public String toString() {
-        // return flavor.toString() + ((amount != MixInAmount.Normal)
         return flavor.toString() + (!amount.equals(MixInAmount.Normal)
                 ? " (" + amount + ") "
                 : " ");
@@ -38,6 +37,7 @@ public class MixIn {
             price = flavor.price() + 1.50;
         else if (amount.equals(MixInAmount.Drenched))
             price = flavor.price() + 2.00;
+
         return price;
     }
 

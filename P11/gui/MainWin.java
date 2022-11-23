@@ -49,6 +49,8 @@ import java.io.FileReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 // import java.io.IOException;
+import java.util.Arrays;
+import java.util.ArrayList;
 
 public class MainWin extends JFrame {
 
@@ -321,10 +323,18 @@ public class MainWin extends JFrame {
 
     protected void onCreateOrderClick() {
         try {
+            Customer cust = null;
+            ArrayList<Order> ordlst = new ArrayList(Arrays.asList(emporium.orders()));
+            if (ordlst != null && !ordlst.isEmpty()) {
+                int sz = ordlst.size();
+                cust = ordlst.get(sz - 1).getCustomer();
+            } else {
+                cust = new Customer("", "");
+            }
             Order order = new Order();
             Serving serving = onCreateServingClick();
             order.addServing(serving);
-            // order.addCustomer(null);
+            order.addCustomer(cust);
             emporium.addOrder(order);
             setDirty(true);
             view(Screen.ORDERS);
