@@ -50,9 +50,10 @@ public class Polynomial {
         // lambda style
         Thread[] threads = new Thread[nthreads];
         try {
-            Thread.sleep(1000);
             roots.clear();
-            threads[0] = new Thread(() -> solveRecursive(min, max, 1, slices, precision, 0));
+            // solveRecursive(min, max, 1, slices, precision, 0);
+            threads[0] = new Thread(() -> solveRecursive(min, max, 1, slices, precision,
+                    0));
             threads[0].start();
             threads[0].join();
         } catch (InterruptedException e) {
