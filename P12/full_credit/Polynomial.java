@@ -48,12 +48,13 @@ public class Polynomial {
 
     public void solve(double min, double max, int nthreads, double slices, double precision) {
         // lambda style
+
+        int val = (int) (min + (max - min) / nthreads);
         Thread[] threads = new Thread[nthreads];
         try {
             roots.clear();
             // solveRecursive(min, max, 1, slices, precision, 0);
-            threads[0] = new Thread(() -> solveRecursive(min, max, 1, slices, precision,
-                    0));
+            threads[0] = new Thread(() -> solveRecursive(min, max, 1, slices, precision, 0));
             threads[0].start();
             threads[0].join();
         } catch (InterruptedException e) {
@@ -128,10 +129,6 @@ public class Polynomial {
             x2 = x1 + delta;
             y1 = y2;
         }
-        // for (Double d : roots) {
-        // System.out.println("");
-        // }
-        // }
     }
 
     private ArrayList<Term> terms = new ArrayList<>();

@@ -1,7 +1,6 @@
 package full_credit;
 
 import java.util.Arrays;
-//import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -14,7 +13,7 @@ public class Solver {
         double min = -1000; // Start searching for roots at x = min
         double max = 1000; // Stop searching for roots at x = max
         double slices = 100000000; // Check this many points between min and max
-        int threads = 10; // Use this many threads to search
+        int threads = 1; // Use this many threads to search
         double precision = 0.000001; // When a root is detected, narrow to this precision
         boolean log = false; // Whether to print log messages to STDERR or not
         boolean fail = false; // Set true if any initialization fails (e.g., bad filename)
@@ -73,6 +72,7 @@ public class Solver {
             p.solve(min, max, threads, slices, precision);
             System.out.println(file + ": " + p.toString() + " has " + p.roots().length + " roots\n  "
                     + Arrays.toString(p.roots()) + "\n");
+
         }
     }
 }
