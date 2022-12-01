@@ -13,100 +13,464 @@ NOTE: These are measurements which may vary plus your opinions which may vary a 
 QUESTION 1: What Solver command line arguments did you use to achieve a 30 to 45 second runtime? Note: We're only interested in the "real" seconds for this question.
 
 
-
-
-
+$ for i in {1..16} ; do time 'C:\Users\anshu\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.4.101-hotspot\bin\java.exe' '-XX:+ShowCodeDetailsInExceptionMessages' '-cp' 
+'C:\Users\anshu\AppData\Roaming\Code\User\workspaceStorage\19a117ae6a6be1e1560c7474291a3d57\redhat.java\jdt_ws\P12_383ae370\bin' 'full_credit.Solver' --threads $i 'c:/Users/anshu/Desktop/Mylabsofcse1325/cse1325/P12/full_credit/polys/*.poly' ; done
 
 
 QUESTION 2: Provide the full output (including the time command) for your program, with 1 to 16 threads. **Ensure that the result is the same for all 16 runs.** (The root found may vary in the least significant digits.) With bash, you can run all of these with a single command if you like, adding whatever Solver command line arguments you identified in QUESTION 1: 
 
-for i in {1..16} ; do time java Solver --threads $i poly4.poly ; done
 
+anshu@LAPTOP-Q4J8QHVM MINGW64 ~/Desktop/Mylabsofcse1325/cse1325/P12 (main)
+$ for i in {1..16} ; do time 'C:\Users\anshu\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.4.101-hotspot\bin\java.exe' '-XX:+ShowCodeDetailsInExceptionMessages' '-cp' 
+'C:\Users\anshu\AppData\Roaming\Code\User\workspaceStorage\19a117ae6a6be1e1560c7474291a3d57\redhat.java\jdt_ws\P12_383ae370\bin' 'full_credit.Solver' --threads $i 'c:/Users/anshu/Desktop/Mylabsofcse1325/cse1325/P12/full_credit/polys/*.poly' ; done
 
-
-Example Timing (first 2 of 16 runs only on Antares - REPLACE this with your timing for 1 to 16 threads):
-
-ricegf@antares$ for i in {1..16} ; do time java Solver --threads $i polys/*.poly ; done
-Loading polys/poly2a.poly... done
-Loading polys/poly2.poly... done
-Loading polys/poly3.poly... done
-Loading polys/poly4a.poly... done
-Loading polys/poly4.poly... done
-Loading polys/untitled.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly... done 
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly... done 
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly... done 
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly... done
 
 threads = 1: range -1000.0 to 1000.0, 1.0E8 slices, precision = 1.0E-6
 
-polys/poly4a.poly: +1.00000x^4-26.0000x^2+25.0000x^0 has 4 roots
-  [-4.999999591980622, -0.9999995919655189, 1.0000004080359182, 5.0000004080510205]
-
-polys/untitled.poly: +1.00000x^4-26.0000x^2+25.0000x^0 has 4 roots
-  [-4.999999591980622, -0.9999995919655189, 1.0000004080359182, 5.0000004080510205]
-
-polys/poly3.poly: -4.00000x^3+6.00000x^2+2.00000x^1+0.00000x^0 has 3 roots
-  [-0.28077659196479976, 4.080351996384489E-7, 1.7807764080323634]
-
-polys/poly2.poly: +1.00000x^2-5.85988x^1+8.53975x^0 has 2 roots
-  [2.7182834080360734, 3.1415964080388483]
-
-polys/poly2a.poly: +1.00000x^2-0.423320x^1-8.53975x^0 has 2 roots
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly: +1.00000x^2-0.423320x^1-8.53975x^0 has 2 roots
   [-2.7182795919656733, 3.141600408038846]
 
-polys/poly4.poly: +1.00000x^4-10.3000x^3-166.500x^2+835.900x^1+991.100x^0 has 4 roots
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly: +1.00000x^4-10.3000x^3-166.500x^2+835.900x^1+991.100x^0 has 4 roots
   [-10.999999591886702, -0.9999995919655189, 5.300000408052986, 17.000000407729956]
 
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly: +1.00000x^4-26.0000x^2+25.0000x^0 has 4 roots
+  [-4.999999591980622, -0.9999995919655189, 1.0000004080359182, 5.0000004080510205]
 
-real	0m36.588s
-user	0m36.703s
-sys	0m0.012s
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly: -4.00000x^3+6.00000x^2+2.00000x^1+0.00000x^0 has 3 roots
+  [-0.28077659196479976, 4.080351996384489E-7, 1.7807764080323634]
 
-Loading polys/poly2a.poly... done
-Loading polys/poly2.poly... done
-Loading polys/poly3.poly... done
-Loading polys/poly4a.poly... done
-Loading polys/poly4.poly... done
-Loading polys/untitled.poly... done
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly: +1.00000x^2-5.85988x^1+8.53975x^0 has 2 roots
+  [2.7182834080360734, 3.1415964080388483]
+
+
+real    0m19.831s
+user    0m0.000s 
+sys     0m0.015s 
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly... done 
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly... done 
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly... done
 
 threads = 2: range -1000.0 to 1000.0, 1.0E8 slices, precision = 1.0E-6
 
-polys/poly4a.poly: +1.00000x^4-26.0000x^2+25.0000x^0 has 4 roots
-  [-4.999999591980622, -0.9999995919655189, 0.999999500000719, 4.999999500015823]
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly: +1.00000x^2-0.423320x^1-8.53975x^0 has 2 roots
+  [-2.7182795919656733, 3.141600408038846]
 
-polys/untitled.poly: +1.00000x^4-26.0000x^2+25.0000x^0 has 4 roots
-  [-4.999999591980622, -0.9999995919655189, 0.999999500000719, 4.999999500015823]
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly: +1.00000x^4-10.3000x^3-166.500x^2+835.900x^1+991.100x^0 has 4 roots
+  [-10.999999591886702, -0.9999995919655189, 5.300000408052986, 17.000000407729956]
 
-polys/poly3.poly: -4.00000x^3+6.00000x^2+2.00000x^1+0.00000x^0 has 4 roots
-  [-0.28077659196479976, 4.080351996384489E-7, 5.0E-7, 1.780776499997164]
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly: +1.00000x^4-26.0000x^2+25.0000x^0 has 4 roots
+  [-4.999999591980622, -0.9999995919655189, 1.0000004080359182, 5.0000004080510205]
 
-polys/poly2.poly: +1.00000x^2-5.85988x^1+8.53975x^0 has 2 roots
-  [2.7182835000008736, 3.1415965000036485]
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly: -4.00000x^3+6.00000x^2+2.00000x^1+0.00000x^0 has 3 roots
+  [-0.28077659196479976, 4.080351996384489E-7, 1.7807764080323634]
 
-polys/poly2a.poly: +1.00000x^2-0.423320x^1-8.53975x^0 has 2 roots
-  [-2.7182795919656733, 3.141599500003649]
-
-polys/poly4.poly: +1.00000x^4-10.3000x^3-166.500x^2+835.900x^1+991.100x^0 has 4 roots
-  [-10.999999591886702, -0.9999995919655189, 5.299999500017789, 17.000000499694757]
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly: +1.00000x^2-5.85988x^1+8.53975x^0 has 2 roots
+  [2.7182834080360734, 3.1415964080388483]
 
 
-real	0m18.284s
-user	0m28.978s
-sys	0m0.024s
+real    0m19.965s
+user    0m0.000s
+sys     0m0.000s
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly... done
+
+threads = 3: range -1000.0 to 1000.0, 1.0E8 slices, precision = 1.0E-6
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly: +1.00000x^2-0.423320x^1-8.53975x^0 has 2 roots
+  [-2.7182795919656733, 3.141600408038846]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly: +1.00000x^4-10.3000x^3-166.500x^2+835.900x^1+991.100x^0 has 4 roots
+  [-10.999999591886702, -0.9999995919655189, 5.300000408052986, 17.000000407729956]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly: +1.00000x^4-26.0000x^2+25.0000x^0 has 4 roots
+  [-4.999999591980622, -0.9999995919655189, 1.0000004080359182, 5.0000004080510205]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly: -4.00000x^3+6.00000x^2+2.00000x^1+0.00000x^0 has 3 roots
+  [-0.28077659196479976, 4.080351996384489E-7, 1.7807764080323634]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly: +1.00000x^2-5.85988x^1+8.53975x^0 has 2 roots
+  [2.7182834080360734, 3.1415964080388483]
+
+
+real    0m19.759s
+user    0m0.000s
+sys     0m0.015s
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly... done
+
+threads = 4: range -1000.0 to 1000.0, 1.0E8 slices, precision = 1.0E-6
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly: +1.00000x^2-0.423320x^1-8.53975x^0 has 2 roots
+  [-2.7182795919656733, 3.141600408038846]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly: +1.00000x^4-10.3000x^3-166.500x^2+835.900x^1+991.100x^0 has 4 roots
+  [-10.999999591886702, -0.9999995919655189, 5.300000408052986, 17.000000407729956]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly: +1.00000x^4-26.0000x^2+25.0000x^0 has 4 roots
+  [-4.999999591980622, -0.9999995919655189, 1.0000004080359182, 5.0000004080510205]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly: -4.00000x^3+6.00000x^2+2.00000x^1+0.00000x^0 has 3 roots
+  [-0.28077659196479976, 4.080351996384489E-7, 1.7807764080323634]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly: +1.00000x^2-5.85988x^1+8.53975x^0 has 2 roots
+  [2.7182834080360734, 3.1415964080388483]
+
+
+real    0m19.890s
+user    0m0.015s
+sys     0m0.000s
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly... done
+
+threads = 5: range -1000.0 to 1000.0, 1.0E8 slices, precision = 1.0E-6
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly: +1.00000x^2-0.423320x^1-8.53975x^0 has 2 roots
+  [-2.7182795919656733, 3.141600408038846]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly: +1.00000x^4-10.3000x^3-166.500x^2+835.900x^1+991.100x^0 has 4 roots
+  [-10.999999591886702, -0.9999995919655189, 5.300000408052986, 17.000000407729956]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly: +1.00000x^4-26.0000x^2+25.0000x^0 has 4 roots
+  [-4.999999591980622, -0.9999995919655189, 1.0000004080359182, 5.0000004080510205]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly: -4.00000x^3+6.00000x^2+2.00000x^1+0.00000x^0 has 3 roots
+  [-0.28077659196479976, 4.080351996384489E-7, 1.7807764080323634]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly: +1.00000x^2-5.85988x^1+8.53975x^0 has 2 roots
+  [2.7182834080360734, 3.1415964080388483]
+
+
+real    0m19.859s
+user    0m0.000s
+sys     0m0.015s
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly... done
+
+threads = 6: range -1000.0 to 1000.0, 1.0E8 slices, precision = 1.0E-6
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly: +1.00000x^2-0.423320x^1-8.53975x^0 has 2 roots
+  [-2.7182795919656733, 3.141600408038846]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly: +1.00000x^4-10.3000x^3-166.500x^2+835.900x^1+991.100x^0 has 4 roots
+  [-10.999999591886702, -0.9999995919655189, 5.300000408052986, 17.000000407729956]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly: +1.00000x^4-26.0000x^2+25.0000x^0 has 4 roots
+  [-4.999999591980622, -0.9999995919655189, 1.0000004080359182, 5.0000004080510205]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly: -4.00000x^3+6.00000x^2+2.00000x^1+0.00000x^0 has 3 roots
+  [-0.28077659196479976, 4.080351996384489E-7, 1.7807764080323634]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly: +1.00000x^2-5.85988x^1+8.53975x^0 has 2 roots
+  [2.7182834080360734, 3.1415964080388483]
+
+
+real    0m19.880s
+user    0m0.000s
+sys     0m0.015s
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly... done
+
+threads = 7: range -1000.0 to 1000.0, 1.0E8 slices, precision = 1.0E-6
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly: +1.00000x^2-0.423320x^1-8.53975x^0 has 2 roots
+  [-2.7182795919656733, 3.141600408038846]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly: +1.00000x^4-10.3000x^3-166.500x^2+835.900x^1+991.100x^0 has 4 roots
+  [-10.999999591886702, -0.9999995919655189, 5.300000408052986, 17.000000407729956]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly: +1.00000x^4-26.0000x^2+25.0000x^0 has 4 roots
+  [-4.999999591980622, -0.9999995919655189, 1.0000004080359182, 5.0000004080510205]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly: -4.00000x^3+6.00000x^2+2.00000x^1+0.00000x^0 has 3 roots
+  [-0.28077659196479976, 4.080351996384489E-7, 1.7807764080323634]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly: +1.00000x^2-5.85988x^1+8.53975x^0 has 2 roots
+  [2.7182834080360734, 3.1415964080388483]
+
+
+real    0m19.763s
+user    0m0.015s
+sys     0m0.000s
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly... done
+
+threads = 8: range -1000.0 to 1000.0, 1.0E8 slices, precision = 1.0E-6
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly: +1.00000x^2-0.423320x^1-8.53975x^0 has 2 roots
+  [-2.7182795919656733, 3.141600408038846]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly: +1.00000x^4-10.3000x^3-166.500x^2+835.900x^1+991.100x^0 has 4 roots
+  [-10.999999591886702, -0.9999995919655189, 5.300000408052986, 17.000000407729956]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly: +1.00000x^4-26.0000x^2+25.0000x^0 has 4 roots
+  [-4.999999591980622, -0.9999995919655189, 1.0000004080359182, 5.0000004080510205]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly: -4.00000x^3+6.00000x^2+2.00000x^1+0.00000x^0 has 3 roots
+  [-0.28077659196479976, 4.080351996384489E-7, 1.7807764080323634]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly: +1.00000x^2-5.85988x^1+8.53975x^0 has 2 roots
+  [2.7182834080360734, 3.1415964080388483]
+
+
+real    0m19.748s
+user    0m0.015s
+sys     0m0.000s
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly... done
+
+threads = 9: range -1000.0 to 1000.0, 1.0E8 slices, precision = 1.0E-6
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly: +1.00000x^2-0.423320x^1-8.53975x^0 has 2 roots
+  [-2.7182795919656733, 3.141600408038846]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly: +1.00000x^4-10.3000x^3-166.500x^2+835.900x^1+991.100x^0 has 4 roots
+  [-10.999999591886702, -0.9999995919655189, 5.300000408052986, 17.000000407729956]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly: +1.00000x^4-26.0000x^2+25.0000x^0 has 4 roots
+  [-4.999999591980622, -0.9999995919655189, 1.0000004080359182, 5.0000004080510205]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly: -4.00000x^3+6.00000x^2+2.00000x^1+0.00000x^0 has 3 roots
+  [-0.28077659196479976, 4.080351996384489E-7, 1.7807764080323634]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly: +1.00000x^2-5.85988x^1+8.53975x^0 has 2 roots
+  [2.7182834080360734, 3.1415964080388483]
+
+
+real    0m19.763s
+user    0m0.000s
+sys     0m0.015s
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly... done
+
+threads = 10: range -1000.0 to 1000.0, 1.0E8 slices, precision = 1.0E-6
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly: +1.00000x^2-0.423320x^1-8.53975x^0 has 2 roots
+  [-2.7182795919656733, 3.141600408038846]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly: +1.00000x^4-10.3000x^3-166.500x^2+835.900x^1+991.100x^0 has 4 roots
+  [-10.999999591886702, -0.9999995919655189, 5.300000408052986, 17.000000407729956]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly: +1.00000x^4-26.0000x^2+25.0000x^0 has 4 roots
+  [-4.999999591980622, -0.9999995919655189, 1.0000004080359182, 5.0000004080510205]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly: -4.00000x^3+6.00000x^2+2.00000x^1+0.00000x^0 has 3 roots
+  [-0.28077659196479976, 4.080351996384489E-7, 1.7807764080323634]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly: +1.00000x^2-5.85988x^1+8.53975x^0 has 2 roots
+  [2.7182834080360734, 3.1415964080388483]
+
+
+real    0m19.947s
+user    0m0.000s
+sys     0m0.031s
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly... done
+
+threads = 11: range -1000.0 to 1000.0, 1.0E8 slices, precision = 1.0E-6
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly: +1.00000x^2-0.423320x^1-8.53975x^0 has 2 roots
+  [-2.7182795919656733, 3.141600408038846]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly: +1.00000x^4-10.3000x^3-166.500x^2+835.900x^1+991.100x^0 has 4 roots
+  [-10.999999591886702, -0.9999995919655189, 5.300000408052986, 17.000000407729956]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly: +1.00000x^4-26.0000x^2+25.0000x^0 has 4 roots
+  [-4.999999591980622, -0.9999995919655189, 1.0000004080359182, 5.0000004080510205]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly: -4.00000x^3+6.00000x^2+2.00000x^1+0.00000x^0 has 3 roots
+  [-0.28077659196479976, 4.080351996384489E-7, 1.7807764080323634]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly: +1.00000x^2-5.85988x^1+8.53975x^0 has 2 roots
+  [2.7182834080360734, 3.1415964080388483]
+
+
+real    0m20.102s
+user    0m0.000s
+sys     0m0.015s
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly... done
+
+threads = 12: range -1000.0 to 1000.0, 1.0E8 slices, precision = 1.0E-6
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly: +1.00000x^2-0.423320x^1-8.53975x^0 has 2 roots
+  [-2.7182795919656733, 3.141600408038846]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly: +1.00000x^4-10.3000x^3-166.500x^2+835.900x^1+991.100x^0 has 4 roots
+  [-10.999999591886702, -0.9999995919655189, 5.300000408052986, 17.000000407729956]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly: +1.00000x^4-26.0000x^2+25.0000x^0 has 4 roots
+  [-4.999999591980622, -0.9999995919655189, 1.0000004080359182, 5.0000004080510205]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly: -4.00000x^3+6.00000x^2+2.00000x^1+0.00000x^0 has 3 roots
+  [-0.28077659196479976, 4.080351996384489E-7, 1.7807764080323634]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly: +1.00000x^2-5.85988x^1+8.53975x^0 has 2 roots
+  [2.7182834080360734, 3.1415964080388483]
+
+
+real    0m19.978s
+user    0m0.000s
+sys     0m0.015s
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly... done
+
+threads = 13: range -1000.0 to 1000.0, 1.0E8 slices, precision = 1.0E-6
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly: +1.00000x^2-0.423320x^1-8.53975x^0 has 2 roots
+  [-2.7182795919656733, 3.141600408038846]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly: +1.00000x^4-10.3000x^3-166.500x^2+835.900x^1+991.100x^0 has 4 roots
+  [-10.999999591886702, -0.9999995919655189, 5.300000408052986, 17.000000407729956]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly: +1.00000x^4-26.0000x^2+25.0000x^0 has 4 roots
+  [-4.999999591980622, -0.9999995919655189, 1.0000004080359182, 5.0000004080510205]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly: -4.00000x^3+6.00000x^2+2.00000x^1+0.00000x^0 has 3 roots
+  [-0.28077659196479976, 4.080351996384489E-7, 1.7807764080323634]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly: +1.00000x^2-5.85988x^1+8.53975x^0 has 2 roots
+  [2.7182834080360734, 3.1415964080388483]
+
+
+real    0m19.941s
+user    0m0.015s
+sys     0m0.000s
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly... done
+
+threads = 14: range -1000.0 to 1000.0, 1.0E8 slices, precision = 1.0E-6
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly: +1.00000x^2-0.423320x^1-8.53975x^0 has 2 roots
+  [-2.7182795919656733, 3.141600408038846]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly: +1.00000x^4-10.3000x^3-166.500x^2+835.900x^1+991.100x^0 has 4 roots
+  [-10.999999591886702, -0.9999995919655189, 5.300000408052986, 17.000000407729956]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly: +1.00000x^4-26.0000x^2+25.0000x^0 has 4 roots
+  [-4.999999591980622, -0.9999995919655189, 1.0000004080359182, 5.0000004080510205]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly: -4.00000x^3+6.00000x^2+2.00000x^1+0.00000x^0 has 3 roots
+  [-0.28077659196479976, 4.080351996384489E-7, 1.7807764080323634]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly: +1.00000x^2-5.85988x^1+8.53975x^0 has 2 roots
+  [2.7182834080360734, 3.1415964080388483]
+
+
+real    0m19.802s
+user    0m0.000s
+sys     0m0.015s
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly... done
+
+threads = 15: range -1000.0 to 1000.0, 1.0E8 slices, precision = 1.0E-6
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly: +1.00000x^2-0.423320x^1-8.53975x^0 has 2 roots
+  [-2.7182795919656733, 3.141600408038846]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly: +1.00000x^4-10.3000x^3-166.500x^2+835.900x^1+991.100x^0 has 4 roots
+  [-10.999999591886702, -0.9999995919655189, 5.300000408052986, 17.000000407729956]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly: +1.00000x^4-26.0000x^2+25.0000x^0 has 4 roots
+  [-4.999999591980622, -0.9999995919655189, 1.0000004080359182, 5.0000004080510205]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly: -4.00000x^3+6.00000x^2+2.00000x^1+0.00000x^0 has 3 roots
+  [-0.28077659196479976, 4.080351996384489E-7, 1.7807764080323634]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly: +1.00000x^2-5.85988x^1+8.53975x^0 has 2 roots
+  [2.7182834080360734, 3.1415964080388483]
+
+
+real    0m19.870s
+user    0m0.000s
+sys     0m0.015s
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly... done
+Loading c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly... done
+
+threads = 16: range -1000.0 to 1000.0, 1.0E8 slices, precision = 1.0E-6
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2a.poly: +1.00000x^2-0.423320x^1-8.53975x^0 has 2 roots
+  [-2.7182795919656733, 3.141600408038846]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4.poly: +1.00000x^4-10.3000x^3-166.500x^2+835.900x^1+991.100x^0 has 4 roots
+  [-10.999999591886702, -0.9999995919655189, 5.300000408052986, 17.000000407729956]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly4a.poly: +1.00000x^4-26.0000x^2+25.0000x^0 has 4 roots
+  [-4.999999591980622, -0.9999995919655189, 1.0000004080359182, 5.0000004080510205]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly3.poly: -4.00000x^3+6.00000x^2+2.00000x^1+0.00000x^0 has 3 roots
+  [-0.28077659196479976, 4.080351996384489E-7, 1.7807764080323634]
+
+c:\Users\anshu\Desktop\Mylabsofcse1325\cse1325\P12\full_credit\polys\poly2.poly: +1.00000x^2-5.85988x^1+8.53975x^0 has 2 roots
+  [2.7182834080360734, 3.1415964080388483]
+
+
+real    0m19.855s
+user    0m0.000s
+sys     0m0.015s
+
+anshu@LAPTOP-Q4J8QHVM MINGW64 ~/Desktop/Mylabsofcse1325/cse1325/P12 (main)
+
+
 
 
 QUESTION 3: Does adding more threads continue to speed up the program? Do more threads ever slow down the program slightly?  Why or why not?
 
 
-
-
-
-
+Addition of more threads does not improve speed of program. Actually adding too many threads decrease the performance of program. It also slows 
+down due to contention of threads. Number of threads depends on number on cores of machine and swapping ability of threads of that machine 
+which can be calculated. Then one can fine tune the program by running it varying degree of threads and use best suited ones.  
 
 
 QUESTION 4: Does adding more threads increase the "system load", or is it constant regardless of the number of threads?  Why?
 
-
-
-
-
-
-
-
+Adding of more threads results in contention issues and also increases system load as threads will be in queue waiting for 
+execution.
